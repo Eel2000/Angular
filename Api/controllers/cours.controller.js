@@ -65,7 +65,18 @@ exports.updateCours = function(req, res){
             if(err){
                 return res.json({success: false, message: err}).status(500);
             }
-            res.json({success: true, message: 'Le cours a ete modifie avec succes', data: ajoutCours});
+            res.json({success: true, message: 'Le cours a ete modifie avec succes', data: ajoutCours}).status(200);
         })
+    })
+}
+
+//methode pour supprimer un cours
+exports.deleteCours = function(req, res){
+    Cours.findByIdAndRemove(req.params.cours_id, function(err){
+        if(err){
+            return res.json({success: false, message: err}).status(500);
+        }
+
+        res.json({success: true, message: 'Le cours a ete supprimer avec succes'}).status(200);
     })
 }
