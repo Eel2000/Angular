@@ -1,4 +1,4 @@
-var Cours = require('../models/cours.models');
+var Cours = require('../models/cours.model');
 
 exports.postCours = function(req, res){
     var cours = new Cours();

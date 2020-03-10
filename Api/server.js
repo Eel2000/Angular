@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 var coursController = require('./controllers/cours.controller');
 
 var DbName = 'CoursAngular';
-mongoose.connect('mongodb://user:pass@localhost:27017/'+ DbName);
+mongoose.connect('mongodb://localhost:27017/'+ DbName);
 
 var app = express();
 

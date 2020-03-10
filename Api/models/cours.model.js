@@ -14,7 +14,7 @@ var CourSchema = new mongoose.Schema({
     },
     contenu: String,
 
-    auteur: string,
+    auteur: String,
     publication: Date
 });
 
