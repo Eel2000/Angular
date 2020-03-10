@@ -1,15 +1,18 @@
 {
-  "name": "api",
-  "version": "1.0.0",
-  "description": "backe-end logic for the angular project",
+  "name": "angular",
+  "version": "1.0.2",
+  "description": "Travail pratique d'angular",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Eliezer BWANA",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.8.9"
-  }
+    "mongoose": "^5.9.4",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Antoine Disasi Kisula et Bwana wa Bwana Eliezer",
+  "license": "ISC"
 }
