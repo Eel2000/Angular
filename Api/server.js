@@ -33,7 +33,8 @@ router.route('/Cours')
     .get(coursController.getCours);
 
 router.route('/Cours/:cours_id')
-    .get(coursController.get_Cours);
+    .get(coursController.get_Cours)
+    .put(coursController.updateCours);
 
 app.listen(port);
 console.log('server started at port number : '+port);

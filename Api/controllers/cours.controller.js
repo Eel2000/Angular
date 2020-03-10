@@ -47,3 +47,25 @@ exports.get_Cours = function(req, res){
         res.json({success: true, message: 'Le cours a ete retrouve avec succes', data: cours}).status(200);
     })
 }
+
+//methode pour modifier un cours
+exports.updateCours = function(req, res){
+    Cours.findById(req.params.cours_id, function(err, cours){
+        if(err){
+            return res.json({success: false, message: err}).status(500);
+        }
+
+        if(req.body.titre) {cours.titre = req.body.titre; }
+        if(req.body.auteur) {cours.auteur = req.body.auteur; }
+        if(req.body.description) {cours.description = req.body.description; }
+        if(req.body.contenu) {cours.contenu = req.body.contenu; }
+        if(req.body.slug) {cours.slug = req.body.slug; }
+
+        cours.save(function (err, ajoutCours){
+            if(err){
+                return res.json({success: false, message: err}).status(500);
+            }
+            res.json({success: true, message: 'Le cours a ete modifie avec succes', data: ajoutCours});
+        })
+    })
+}
