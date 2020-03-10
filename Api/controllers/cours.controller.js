@@ -32,3 +32,18 @@ exports.getCours = function(req, res){
         res.json({success: true, message: 'Les cours ont ete trouve avec succes', data: cours}).status(200);
     })
 }
+
+//methode pour retourner un cours via l'id
+exports.get_Cours = function(req, res){
+    Cours.findById(req.params.cours_id, function(err, cours){
+        if(err){
+            return res.json({success: false, message: err}).status(500);
+        }
+
+        if(!cours){
+            return res.json({success: false, message: 'Il n y a pas le cours de l id ' + req.params.cours_id}).status(404);
+        }
+
+        res.json({success: true, message: 'Le cours a ete retrouve avec succes', data: cours}).status(200);
+    })
+}

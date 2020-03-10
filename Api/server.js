@@ -32,5 +32,8 @@ router.route('/Cours')
     .post(coursController.postCours)
     .get(coursController.getCours);
 
+router.route('/Cours/:cours_id')
+    .get(coursController.get_Cours);
+
 app.listen(port);
 console.log('server started at port number : '+port);
