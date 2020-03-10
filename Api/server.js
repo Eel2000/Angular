@@ -29,7 +29,8 @@ router.get('/', function (req, res) {
 app.use('/api',router);
 
 router.route('/Cours')
-    .post(coursController.postCours);
+    .post(coursController.postCours)
+    .get(coursController.getCours);
 
 app.listen(port);
 console.log('server started at port number : '+port);
