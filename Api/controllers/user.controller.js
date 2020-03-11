@@ -47,3 +47,23 @@ exports.getUser = function(req, res){
         res.json({success: true, message: 'Le user a ete retrouve avec succes', data: user}).status(200);
     })
 }
+//methode pour modifier un user
+exports.updateUser = function(req, res){
+    Users.findById(req.params.user_id, function(err, users){
+        if(err){
+            return res.json({success: false, message: err}).status(500);
+        }
+
+        if(req.body.nom) {users.nom = req.body.nom; }
+        if(req.body.postnom) {users.postnom = req.body.postnom; }
+        if(req.body.email) {users.email = req.body.email; }
+        if(req.body.mot_pass) {users.mot_pass = req.body.mot_pass; }
+
+        users.save(function (err, modifieUser){
+            if(err){
+                return res.json({success: false, message: err}).status(500);
+            }
+            res.json({success: true, message: 'Le cours a ete modifie avec succes', data: modifieUser}).status(200);
+        })
+    })
+}
