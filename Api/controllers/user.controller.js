@@ -67,3 +67,14 @@ exports.updateUser = function(req, res){
         })
     })
 }
+
+//methode pour supprimer un cours
+exports.deleteUsers = function(req, res){
+    Users.findByIdAndRemove(req.params.user_id, function(err){
+        if(err){
+            return res.json({success: false, message: err}).status(500);
+        }
+
+        res.json({success: true, message: 'Le cours a ete supprimer avec succes'}).status(200);
+    })
+}

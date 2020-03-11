@@ -46,7 +46,8 @@ router.route('/Users')
 
 router.route('/Users/:user_id')
     .get(userController.getUser)
-    .put(userController.updateUser);
+    .put(userController.updateUser)
+    .delete(userController.deleteUsers);
 
 app.listen(port);
 console.log('server started at port number : '+port);
