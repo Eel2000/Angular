@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 
 //On reccupere notre controller cours
 var coursController = require('./controllers/cours.controller');
+var userController = require('./controllers/user.controller');
 
 var DbName = 'CoursAngular';
 mongoose.connect('mongodb://localhost:27017/'+ DbName);
@@ -28,6 +29,7 @@ router.get('/', function (req, res) {
 
 app.use('/api',router);
 
+//Cours
 router.route('/Cours')
     .post(coursController.postCours)
     .get(coursController.getCours);
@@ -36,6 +38,10 @@ router.route('/Cours/:cours_id')
     .get(coursController.get_Cours)
     .put(coursController.updateCours)
     .delete(coursController.deleteCours);
+
+//User
+router.route('/Users')
+    .post(userController.postUser);
 
 app.listen(port);
 console.log('server started at port number : '+port);
