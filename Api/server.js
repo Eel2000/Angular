@@ -42,6 +42,9 @@ router.route('/Cours/:cours_id')
 //User
 router.route('/Users')
     .post(userController.postUser)
+    .get(userController.getUsers);
+
+router.route('/Users/:user_id')
     .get(userController.getUser);
 
 app.listen(port);

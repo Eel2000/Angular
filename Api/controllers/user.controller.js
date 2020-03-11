@@ -19,16 +19,31 @@ exports.postUser = function(req, res){
 }
 
 //REcuperer tout les users
-exports.getUser = function(req, res){
+exports.getUsers = function(req, res){
     Users.find(function(err, users){
         if(err){
             return res.json({success: false, message: err}).status(500);
         }
 
         if(!users){
-            return res.json({success: false, message: 'Il n y a pas des cours dans la base de donnees'}).status(404);
+            return res.json({success: false, message: 'Il n y a pas des users dans la base de donnees'}).status(404);
         }
 
-        res.json({success: true, message: 'Les cours ont ete trouve avec succes', data: users}).status(200);
+        res.json({success: true, message: 'Les users ont ete trouve avec succes', data: users}).status(200);
+    })
+}
+
+//methode pour retourner un user via l'id
+exports.getUser = function(req, res){
+    Users.findById(req.params.user_id, function(err, user){
+        if(err){
+            return res.json({success: false, message: err}).status(500);
+        }
+
+        if(!user){
+            return res.json({success: false, message: 'Il n y a pas le user de l id ' + req.params.user_id}).status(404);
+        }
+
+        res.json({success: true, message: 'Le user a ete retrouve avec succes', data: user}).status(200);
     })
 }
