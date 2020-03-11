@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var CourSchema = new mongoose.Schema({
+
     titre: {
         type: String,
         required: true,
