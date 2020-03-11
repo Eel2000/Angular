@@ -41,7 +41,8 @@ router.route('/Cours/:cours_id')
 
 //User
 router.route('/Users')
-    .post(userController.postUser);
+    .post(userController.postUser)
+    .get(userController.getUser);
 
 app.listen(port);
 console.log('server started at port number : '+port);
